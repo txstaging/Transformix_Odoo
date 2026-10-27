@@ -1,0 +1,12 @@
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: transformix-odoo
+    container_name: transformix-odoo
+    restart: unless-stopped
+    ports:
+      - "3052:3000"
+    environment:
+      - NODE_ENV=production

@@ -1,0 +1,48 @@
+@import "tailwindcss";
+@config "../../tailwind.config.ts";
+
+/* Figma variables → runtime design tokens (consumed by tailwind.config.ts). */
+:root {
+  --tfx-primary: #1c4499;
+  --tfx-primary-strong: #163a85;
+  --tfx-secondary: #2ac0d4;
+  --tfx-tertiary: #5b3379;
+
+  --tfx-ink: #1a1a1a;
+  --tfx-ink-muted: #57585b;
+  --tfx-ink-inverse: #ffffff;
+
+  --tfx-surface: #ffffff;
+  --tfx-surface-card: #fcfbfa;
+
+  --tfx-blue-light: #e8ecf5;
+  --tfx-blue-light-hover: #dde3f0;
+  --tfx-blue-light-active: #b9c5df;
+  --tfx-yellow-light: #fef8eb;
+
+  --tfx-navy: #0a1836;
+  --tfx-glow: #7fe0ff;
+  --tfx-copyright: rgb(243 241 236 / 0.4);
+}
+
+@layer base {
+  html {
+    scroll-padding-top: 96px;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+
+  body {
+    @apply bg-surface text-ink font-sans antialiased;
+    overflow-x: clip;
+  }
+
+  ::selection {
+    @apply bg-primary text-ink-inverse;
+  }
+}
