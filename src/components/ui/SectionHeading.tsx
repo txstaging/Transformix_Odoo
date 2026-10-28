@@ -1,5 +1,6 @@
 import { Fragment } from "react";
 
+import { RevealWords } from "@/components/ui/Reveal";
 import { cn } from "@/lib/cn";
 import type { DesignLines as DesignLinesType, SectionIntro } from "@/types/content";
 
@@ -18,14 +19,26 @@ interface SectionHeadingProps {
   intro: SectionIntro;
   /** `lead` = Tajawal 24px, `body` = Noto Kufi 18px. */
   descriptionTone?: "lead" | "body";
+  /** Brings the title in word by word and marks its closing line. */
+  animateTitle?: boolean;
   className?: string;
 }
 
-export function SectionHeading({ id, intro, descriptionTone = "lead", className }: SectionHeadingProps) {
+export function SectionHeading({
+  id,
+  intro,
+  descriptionTone = "lead",
+  animateTitle = false,
+  className,
+}: SectionHeadingProps) {
   return (
     <div className={cn("flex flex-col items-center gap-6 text-center", className)}>
       <h2 id={id} className="text-2xl leading-auto font-bold text-primary sm:text-[32px] lg:text-display">
-        <DesignLines lines={intro.titleLines} />
+        {animateTitle ? (
+          <RevealWords lines={intro.titleLines} markLastLine />
+        ) : (
+          <DesignLines lines={intro.titleLines} />
+        )}
       </h2>
       {intro.descriptionLines && (
         <p

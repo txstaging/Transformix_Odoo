@@ -58,6 +58,7 @@ export function HeroSection({ content }: HeroSectionProps) {
           <MediaFrame
             media={media}
             preload
+            tilt="page"
             sizes="(min-width: 1024px) 591px, 112vw"
             className="rounded-media lg:w-[44%] lg:shrink-0"
           />

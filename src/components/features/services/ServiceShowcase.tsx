@@ -36,6 +36,7 @@ export function ServiceShowcase({ service }: ServiceShowcaseProps) {
 
         <MediaFrame
           media={media}
+          tilt="view"
           sizes="(min-width: 1024px) 591px, 112vw"
           className={cn("lg:w-[45%] lg:shrink-0", media.rounded && "rounded-media-lg")}
         />
